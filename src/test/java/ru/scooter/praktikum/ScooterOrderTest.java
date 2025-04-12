@@ -1,9 +1,9 @@
 package ru.scooter.praktikum;
 
 import org.junit.Test;
-import ru.scooter.praktikum.pages.MainPage;
-import ru.scooter.praktikum.pages.OrderPage;
-import ru.scooter.praktikum.pages.RentPage;
+import ru.scooter.practikum.MainPage;
+import ru.scooter.practikum.OrderPage;
+import ru.scooter.practikum.RentPage;
 
 import static org.junit.Assert.assertTrue;
 

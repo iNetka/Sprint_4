@@ -1,7 +1,7 @@
 package ru.scooter.praktikum;
 
 import org.junit.Test;
-import ru.scooter.praktikum.pages.MainPage;
+import ru.scooter.practikum.MainPage;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;

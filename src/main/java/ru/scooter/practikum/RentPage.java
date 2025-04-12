@@ -1,12 +1,10 @@
-package ru.scooter.praktikum.pages;
+package ru.scooter.practikum;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.Objects;
 
 public class RentPage {
     WebDriver driver;
