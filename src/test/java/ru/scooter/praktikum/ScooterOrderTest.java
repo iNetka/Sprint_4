@@ -1,14 +1,17 @@
-import pageObjects.MainPage;
-import pageObjects.OrderPage;
-import pageObjects.RentPage;
+package ru.scooter.praktikum;
+
 import org.junit.Test;
+import ru.scooter.praktikum.pages.MainPage;
+import ru.scooter.praktikum.pages.OrderPage;
+import ru.scooter.praktikum.pages.RentPage;
 
 import static org.junit.Assert.assertTrue;
 
 public class ScooterOrderTest extends BaseTest {
+
     // Заказать через хедер
     @Test
-    public void samokatOrderingByHeaderOrderButton() {
+    public void OrderByHeaderButtonTest() {
         new MainPage(driver)
                 .openSite()
                 .clickCookieButton()
@@ -22,19 +25,19 @@ public class ScooterOrderTest extends BaseTest {
                 .sendDeliveryClientPhoneNumber("89169161234")
                 .clickNextButton();
 
-        boolean isDisplayed = new RentPage(driver)
+        RentPage rentPage = new RentPage(driver)
                 .sendRentalDate("28.04.2025")
                 .setRentalTime()
                 .clickCheckBoxColourBlackPearl()
                 .sendComment("Как можно быстрее")
                 .clickOrderButton()
-                .clickOrderButtonYes()
-                .isModalOrderWindowDisplayed();
-        assertTrue("Что-то пошло не так...", isDisplayed);
+                .clickOrderButtonYes();
+
+        assertTrue("Что-то пошло не так...", rentPage.checkOrderCreated());
     }
     // Заказать на середине страницы
     @Test
-    public void samokatOrderingByMiddleOrderButton() {
+    public void OrderByMiddleButtonTest() {
         new MainPage(driver)
                 .openSite()
                 .clickCookieButton()
@@ -48,14 +51,14 @@ public class ScooterOrderTest extends BaseTest {
                 .sendDeliveryClientPhoneNumber("89269261231")
                 .clickNextButton();
 
-        boolean isDisplayed = new RentPage(driver)
+       RentPage rentPage = new RentPage(driver)
                 .sendRentalDate("07.05.2025")
                 .setRentalTime()
                 .clickCheckBoxColourGreyDespair()
                 .sendComment("Хочу кататься")
                 .clickOrderButton()
-                .clickOrderButtonYes()
-                .isModalOrderWindowDisplayed();
-        assertTrue("Что-то пошло не так...", isDisplayed);
+                .clickOrderButtonYes();
+
+        assertTrue("Что-то пошло не так...", rentPage.checkOrderCreated());
     }
 }

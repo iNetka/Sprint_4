@@ -1,4 +1,4 @@
-package pageObjects;
+package ru.scooter.praktikum.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -55,16 +55,15 @@ public class OrderPage {
         return this;
     }
 
-    // Для кого самокат - Телефона: на него позвонить курьер
+    // Для кого самокат - Телефон: на него позвонить курьер
     public OrderPage sendDeliveryClientPhoneNumber(String phoneNumber) {
         driver.findElement(deliveryClientPhoneNumber).sendKeys(phoneNumber);
         return this;
     }
 
     // Для кого самокат - клик по кнопке Далее
-    public OrderPage clickNextButton() {
+    public void clickNextButton() {
         driver.findElement(NextButton).click();
-        return this;
     }
 
 }
