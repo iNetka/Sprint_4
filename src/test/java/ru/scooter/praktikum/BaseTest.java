@@ -18,7 +18,6 @@ public class BaseTest {
     public void setUp() {
 
         //   Браузер Chrome
-        System.setProperty("webdriver.chrome.driver", "D:\\Sprint_4\\final2\\Sprint_4\\chromedriver.exe");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox", "--disable-dev-shm-usage");
         driver = new ChromeDriver(options);

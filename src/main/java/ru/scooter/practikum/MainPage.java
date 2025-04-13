@@ -1,4 +1,4 @@
-package ru.scooter.practikum;
+package ru.practikum.scooter;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -31,6 +31,14 @@ public class MainPage {
 
     private By Questions = By.xpath("//div[contains(@id,\"accordion__heading\")]");
     private By Answers = By.xpath("//div[contains(@id,\"accordion__panel\")]/p");
+
+    public By getQuestionsLocator() {
+        return Questions;
+    }
+
+    public By getAnswersLocator() {
+        return Answers;
+    }
 
     // Вопросы о важном
     private static final String[] dropDownQuestionsArray = new String[]{
@@ -89,7 +97,7 @@ public class MainPage {
     public boolean CheckOnAnswers() {
         List<WebElement> listOfQuestions = driver.findElements(this.Questions);
         List<WebElement> listOfAnswers = driver.findElements(this.Answers);
-     // Сравнение найденных ответов
+        // Сравнение найденных ответов
         if (listOfAnswers.size() != textOfAnswers.length) {
             return false;
         }
@@ -98,7 +106,7 @@ public class MainPage {
         WebDriverWait wait = new WebDriverWait(driver, 5);
         for (int i = 0; i < listOfAnswers.size(); i++) {
             wait.until(ExpectedConditions.elementToBeClickable(listOfQuestions.get(i))).click();
-          String AnswersText = wait.until(ExpectedConditions.visibilityOf(listOfAnswers.get(i))).getText();
+            String AnswersText = wait.until(ExpectedConditions.visibilityOf(listOfAnswers.get(i))).getText();
             if (!Objects.equals(AnswersText, textOfAnswers[i])) {
                 return false;
             }
